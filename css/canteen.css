@@ -1,0 +1,89 @@
+:root { --primary: rgb(99, 102, 241); }
+
+.canteen-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.cart-trigger { background: var(--primary); color: white; padding: 12px 20px; border-radius: 12px; cursor: pointer; position: relative; font-weight: 700; box-shadow: 0 5px 15px rgba(99,102,241,0.3); }
+#cart-count { position: absolute; top: -8px; right: -8px; background: #ef4444; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; border: 2px solid white; }
+
+.categories { display: flex; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding-bottom: 10px; }
+.cat-btn { padding: 10px 20px; border-radius: 50px; border: 1px solid #e2e8f0; background: white; cursor: pointer; white-space: nowrap; transition: 0.3s; }
+.cat-btn.active { background: var(--primary); color: white; }
+
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+.menu-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #eef2ff; transition: 0.3s; }
+.menu-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.item-img { height: 160px; background-size: cover; background-position: center; position: relative; }
+.time-badge { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); color: white; padding: 4px 8px; border-radius: 6px; font-size: 0.7rem; backdrop-filter: blur(4px); }
+.price-tag { position: absolute; bottom: 10px; right: 10px; background: white; padding: 4px 10px; border-radius: 8px; font-weight: 800; }
+.item-info { padding: 15px; }
+.add-btn { width: 100%; padding: 10px; border: none; border-radius: 10px; background: #f1f5f9; color: var(--primary); font-weight: 700; cursor: pointer; margin-top: 10px; }
+/* Food items ke beech gap aur layout */
+.menu-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Card width thodi badha di */
+    gap: 35px; /* Gap badha kar 35px kar diya */
+    padding: 10px 0;
+}
+/* 1. Menu Card Hover: Enlarge and Boundary */
+.menu-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth 'Pop' effect */
+    border: 2px solid transparent; /* Initial boundary */
+}
+
+.menu-card:hover {
+   /* Card thoda bada hoga */
+    border-color: var(--primary); /* Boundary colour change hoga */
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2); /* Deep shadow for depth */
+}
+
+/* 2. Add to Cart Button: Colour change on Card Hover */
+/* Jab card par hover ho, tab button ka color change ho jaye */
+.menu-card:hover .add-btn {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+/* Button par direct hover ka extra effect */
+.add-btn {
+    transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1); 
+    /* Thoda bright dikhega click karne se pehle */
+}
+
+/* Sidebar items ke beech gap aur styling */
+.order-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+    margin-bottom: 15px; /* Items ke beech gap */
+    border: 1px solid #e2e8f0;
+}
+
+.item-details { display: flex; flex-direction: column; gap: 4px; }
+.item-name { font-weight: 700; color: #1e293b; }
+.item-meta { font-size: 0.85rem; color: var(--primary); font-weight: 600; }
+
+.delete-btn { 
+    background: #fee2e2; 
+    color: #ef4444; 
+    border: none; 
+    padding: 8px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: 0.2s;
+}
+.delete-btn:hover { background: #fecaca; }
+.cart-sidebar { position: fixed; right: -420px; top: 0; width: 380px; height: 100%; background: white; z-index: 2000; box-shadow: -10px 0 30px rgba(0,0,0,0.1); transition: 0.4s ease; padding: 25px; display: flex; flex-direction: column; }
+.cart-sidebar.active { right: 0; }
+.cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.close-cart { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+.prep-time-box { background: #fffbeb; border: 1px solid #fef3c7; color: #92400e; padding: 12px; border-radius: 12px; margin-bottom: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.total-box { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.1rem; padding: 15px 0; border-top: 1px solid #eee; }
+.checkout-btn { background: var(--primary); color: white; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; }
