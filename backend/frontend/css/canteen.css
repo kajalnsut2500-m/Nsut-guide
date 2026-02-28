@@ -1,5 +1,5 @@
 :root { --primary: rgb(99, 102, 241); }
-
+body{ margin : 0px ; padding: 0px ;}
 .canteen-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
 .cart-trigger { background: var(--primary); color: white; padding: 12px 20px; border-radius: 12px; cursor: pointer; position: relative; font-weight: 700; box-shadow: 0 5px 15px rgba(99,102,241,0.3); }
 #cart-count { position: absolute; top: -8px; right: -8px; background: #ef4444; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; border: 2px solid white; }
@@ -87,3 +87,9 @@
 .prep-time-box { background: #fffbeb; border: 1px solid #fef3c7; color: #92400e; padding: 12px; border-radius: 12px; margin-bottom: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
 .total-box { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.1rem; padding: 15px 0; border-top: 1px solid #eee; }
 .checkout-btn { background: var(--primary); color: white; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; }
+.main-content {
+    margin-left:5vw;
+    margin-right: 5vw;
+    padding-top:50px;
+    transition: var(--transition);
+}
