@@ -114,7 +114,7 @@ body { background-color: var(--bg-color); color: var(--text-main); overflow-x: h
     display: flex;
     align-items: center;
     border: 1px solid #e2e8f0;
-    width: 350px;
+    width: 200px;
 }
 
 .search-bar input {
