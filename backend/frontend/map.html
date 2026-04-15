@@ -3,45 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NSUT Campus Map</title>
+<title>Campus Map | NSUT Guide</title>
 
-<!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/map.css">
 </head>
 
 <body>
 
-<div class="map-container">
-
-  <!-- Top Bar -->
-  <div class="map-header">
-    <h2><i class="fas fa-map-location-dot"></i> NSUT Campus Map</h2>
-    <input type="text" id="searchBox" placeholder="Search location...">
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo-data">
+      <i class="fas fa-graduation-cap logo-icon"></i>
+      <span class="logo-name">NSUT <span>Guide</span></span>
+    </div>
+    <button class="toggle-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
   </div>
 
-  <!-- Sidebar -->
-  <div class="map-sidebar">
-    <button onclick="goToLocation(apj)">APJ Block</button>
-    <button onclick="goToLocation(lt)">Lecture Theatre</button>
-    <button onclick="goToLocation(library)">Library</button>
-    <button onclick="goToLocation(admin)">Admin Block</button>
-    <button onclick="goToLocation(hostel)">Hostels</button>
-    <button onclick="goToLocation(canteen)">Canteen</button>
+  <ul class="nav-links">
+    <li><a href="index.html"><i class="fas fa-house"></i><span class="link-name">Home</span></a></li>
+    <li><a href="lostfound.html"><i class="fas fa-box-open"></i><span class="link-name">Lost & Found</span></a></li>
+    <li><a href="#" class="active"><i class="fas fa-map-location-dot"></i><span class="link-name">Campus Map</span></a></li>
+  </ul>
+
+  <div class="location-list">
+    <p class="list-label"><span class="link-name">Locations</span></p>
+    <button onclick="goToLocation(APJ_Block, apjMarker)"><i class="fas fa-building"></i><span class="link-name">APJ Block</span></button>
+    <button onclick="goToLocation(Block6, block6Marker)"><i class="fas fa-building"></i><span class="link-name">Block 6</span></button>
+    <button onclick="goToLocation(Block5, block5Marker)"><i class="fas fa-building"></i><span class="link-name">Block 5</span></button>
+    <button onclick="goToLocation(Block4, block4Marker)"><i class="fas fa-building"></i><span class="link-name">Block 4</span></button>
+    <button onclick="goToLocation(library, libraryMarker)"><i class="fas fa-book"></i><span class="link-name">Library</span></button>
+    <button onclick="goToLocation(admin, adminMarker)"><i class="fas fa-landmark"></i><span class="link-name">Admin Block</span></button>
+    <button onclick="goToLocation(hostel, hostelMarker)"><i class="fas fa-bed"></i><span class="link-name">Hostels</span></button>
+    <button onclick="goToLocation(canteen, canteenMarker)"><i class="fas fa-utensils"></i><span class="link-name">Canteen</span></button>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<div class="main-content" id="mainContent">
+
+  <div class="map-topbar">
+    <div>
+      <h1><i class="fas fa-map-location-dot"></i> Campus Map</h1>
+      <p>Explore NSUT campus locations</p>
+    </div>
+    <div class="map-controls">
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchBox" placeholder="Search location...">
+      </div>
+      <div class="zoom-btns">
+        <button onclick="map.zoomIn()"><i class="fas fa-plus"></i></button>
+        <button onclick="map.zoomOut()"><i class="fas fa-minus"></i></button>
+      </div>
+    </div>
   </div>
 
-  <!-- Map -->
-  <div id="map"></div>
+  <div class="map-wrapper">
+    <div id="map"></div>
+  </div>
 
 </div>
 
-<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script src="js/map.js"></script>
 </body>
 </html>
